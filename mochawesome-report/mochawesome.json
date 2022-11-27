@@ -1,0 +1,391 @@
+{
+  "stats": {
+    "suites": 9,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-27T00:21:23.214Z",
+    "end": "2022-11-27T00:21:26.691Z",
+    "duration": 3477,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "17626456-4b51-4fc2-a1bb-cb67b7f0c652",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0f11ca5b-9508-49bf-bb6f-ee145870bcd9",
+          "title": "Create User endpoint ",
+          "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/create_user.test.js",
+          "file": "/tests/create_user.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "66e745c4-845f-48a1-bfe1-015d876eeb60",
+              "title": "POST to create a new User with correct fields, endpoint: /users/new",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/create_user.test.js",
+              "file": "/tests/create_user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return an object representing the User and has a field '_id'",
+                  "fullTitle": "Create User endpoint  POST to create a new User with correct fields, endpoint: /users/new should return an object representing the User and has a field '_id'",
+                  "timedOut": false,
+                  "duration": 488,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const payload = {\n  name: \"Anas\",\n  email: \"anasone@gmail.com\",\n  age: 1,\n};\nconst response = await axios.post(`${API_URL}/users/new`, payload);\nexpect(response.status).to.be.equal(201);\nexpect(response.data).to.be.an(\"object\");\nexpect(response.data).to.have.property(\"_id\");",
+                  "err": {},
+                  "uuid": "5662f797-0b6b-4e02-9c17-34224c4f405d",
+                  "parentUUID": "66e745c4-845f-48a1-bfe1-015d876eeb60",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5662f797-0b6b-4e02-9c17-34224c4f405d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 488,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "f3d5b6d2-ea73-4f94-85c6-51fe91b892b0",
+              "title": "POST to create a new User with incorrect fields, endpoint: /users/new",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/create_user.test.js",
+              "file": "/tests/create_user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should not return a new user object",
+                  "fullTitle": "Create User endpoint  POST to create a new User with incorrect fields, endpoint: /users/new should not return a new user object",
+                  "timedOut": false,
+                  "duration": 8,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const payload = {\n    //name: \"Anas\",\n    email: \"anasone@gmail.com\",\n    age: 1,\n  };\n  const response = await axios.post(`${API_URL}/users/new`, payload);\n  expect(response.status).not.to.be.equal(201);\n} catch (error) {\n  if (error.response) {\n    expect(error.response.status).not.to.be.equal(201);\n    expect(error.response).to.be.an(\"object\");\n    expect(error.response)\n      .to.have.property(\"data\")\n      .to.have.property(\"message\")\n      .to.include(\"ValidationError\");\n  }\n}",
+                  "err": {},
+                  "uuid": "ea22c7b3-9b81-491c-a092-d40cb5da6d07",
+                  "parentUUID": "f3d5b6d2-ea73-4f94-85c6-51fe91b892b0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ea22c7b3-9b81-491c-a092-d40cb5da6d07"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 8,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "89195d84-d958-431e-9610-ccd304601e2d",
+          "title": " Users Controller",
+          "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/user.test.js",
+          "file": "/tests/user.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \" Users Controller\"",
+              "fullTitle": " Users Controller \"before each\" hook in \" Users Controller\"",
+              "timedOut": false,
+              "duration": 351,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "user = await createUser();",
+              "err": {},
+              "uuid": "a6dfd728-9178-4815-a588-b31a48575f18",
+              "parentUUID": "89195d84-d958-431e-9610-ccd304601e2d",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "451d86f2-b2fa-44d1-8831-fef3315d40b5",
+              "title": "GET Users endpoint /users",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/user.test.js",
+              "file": "/tests/user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return an array of users",
+                  "fullTitle": " Users Controller GET Users endpoint /users should return an array of users",
+                  "timedOut": false,
+                  "duration": 586,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await axios.get(`${API_URL}/users`);\nexpect(response.data).to.be.an(\"array\");",
+                  "err": {},
+                  "uuid": "82f7b7bf-5eb3-4033-a1d7-f9242f852876",
+                  "parentUUID": "451d86f2-b2fa-44d1-8831-fef3315d40b5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "82f7b7bf-5eb3-4033-a1d7-f9242f852876"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 586,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "96d468f5-df7b-4269-b276-eb0506e543c6",
+              "title": "GET a User by email endpoint /users/:email",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/user.test.js",
+              "file": "/tests/user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return an object representing User data which has property 'age'",
+                  "fullTitle": " Users Controller GET a User by email endpoint /users/:email should return an object representing User data which has property 'age'",
+                  "timedOut": false,
+                  "duration": 307,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await axios.get(`${API_URL}/users/anasone@gmail.com`);\nexpect(response.data).to.be.an(\"object\");\nexpect(response.status).to.be.equal(200);\nexpect(response.data).to.have.property(\"age\");\nexpect(response.data).to.have.property(\"name\");\nexpect(response.data.email).to.be.equal(\"anasone@gmail.com\");",
+                  "err": {},
+                  "uuid": "92de9f01-71c9-4c03-9e2c-5dceb7dbae1d",
+                  "parentUUID": "96d468f5-df7b-4269-b276-eb0506e543c6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "92de9f01-71c9-4c03-9e2c-5dceb7dbae1d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 307,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "7a524fe9-0c41-4217-a4f5-21d7922fec23",
+              "title": "POST a new User object endpoint /users/new",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/user.test.js",
+              "file": "/tests/user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return an object representing the User and has a field '_id'",
+                  "fullTitle": " Users Controller POST a new User object endpoint /users/new should return an object representing the User and has a field '_id'",
+                  "timedOut": false,
+                  "duration": 307,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await axios.post(`${API_URL}/users/new`, payload);\nexpect(response.status).to.be.equal(201);\nexpect(response.data).to.be.an(\"object\");\nexpect(response.data).to.haveOwnProperty(\"_id\");",
+                  "err": {},
+                  "uuid": "a35661ae-b065-4698-af84-25d5e5e40a6f",
+                  "parentUUID": "7a524fe9-0c41-4217-a4f5-21d7922fec23",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a35661ae-b065-4698-af84-25d5e5e40a6f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 307,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "f709f451-c733-473a-81e1-ba873978dc9f",
+              "title": "PUT update a User data endpoint /users/:email",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/user.test.js",
+              "file": "/tests/user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return a number which represent the count of affected records",
+                  "fullTitle": " Users Controller PUT update a User data endpoint /users/:email should return a number which represent the count of affected records",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await axios.put(\n  `${API_URL}/users/kennie@gmail.com`,\n  payload\n);\nexpect(response.status).to.be.equal(200);\nexpect(response.data)\n  .to.be.an(\"object\")\n  .to.have.property(\"message\")\n  .to.equal(\"User records has been successfully updated\");",
+                  "err": {},
+                  "uuid": "b05e7bf5-1b18-46dc-a2b1-989155b6c78e",
+                  "parentUUID": "f709f451-c733-473a-81e1-ba873978dc9f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b05e7bf5-1b18-46dc-a2b1-989155b6c78e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "ac84cda1-6130-4fb3-8a25-31e51f75d489",
+              "title": "DELETE a User data endpoint /users/:email",
+              "fullFile": "/Users/kehindelawal/dev_works/api-testing-tutorial/mocha-chai-unit-testing-node/tests/user.test.js",
+              "file": "/tests/user.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return a number which represent the count of affected records",
+                  "fullTitle": " Users Controller DELETE a User data endpoint /users/:email should return a number which represent the count of affected records",
+                  "timedOut": false,
+                  "duration": 249,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await axios.delete(`${API_URL}/users/${user.email}`);\nexpect(response.status).to.be.equal(200);\nexpect(response.data)\n  .to.be.an(\"object\")\n  .to.have.property(\"message\")\n  .to.equal(\"User records have been successfully removed\");",
+                  "err": {},
+                  "uuid": "884a2a3f-a184-4b6d-a6fa-039288b15e8c",
+                  "parentUUID": "ac84cda1-6130-4fb3-8a25-31e51f75d489",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "884a2a3f-a184-4b6d-a6fa-039288b15e8c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 249,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
